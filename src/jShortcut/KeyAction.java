@@ -1,6 +1,6 @@
 package jShortcut;
 
-import misc.Callback;
+import interfaces.Callback;
 
 public class KeyAction {
 

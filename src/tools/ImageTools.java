@@ -1,4 +1,4 @@
-package misc;
+package tools;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -11,7 +11,7 @@ import java.io.File;
 
 import javax.imageio.ImageIO;
 
-public class Image {
+public class ImageTools {
 
 	// Deep copies a Buffered Image
 	public static BufferedImage cloneBufferedImage(BufferedImage image) {

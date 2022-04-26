@@ -1,4 +1,4 @@
-package misc;
+package interfaces;
 
 public interface Callback {
 	
