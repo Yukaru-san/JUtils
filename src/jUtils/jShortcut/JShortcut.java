@@ -72,7 +72,6 @@ public class JShortcut implements NativeKeyListener {
 	}
 
 	public void nativeKeyReleased(NativeKeyEvent e) {
-		System.out.println("released");
 		for (KeyAction action : actionList) {
 			action.setIgnored(action.matches(e.getKeyCode(), e.getModifiers()));
 		}
