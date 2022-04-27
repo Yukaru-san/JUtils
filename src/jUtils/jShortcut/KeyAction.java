@@ -1,6 +1,6 @@
-package jShortcut;
+package jUtils.jShortcut;
 
-import interfaces.Callback;
+import jUtils.interfaces.Callback;
 
 public class KeyAction {
 

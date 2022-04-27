@@ -1,4 +1,4 @@
-package tools;
+package jUtils.tools;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -9,6 +9,7 @@ import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
@@ -39,15 +40,11 @@ public class ImageTools {
 	}
 
 	// Loads an Image from within the Java Classpath or .jar file
-	public static BufferedImage loadEmbeddedImage(String path) throws IOException {
+	public static BufferedImage loadEmbeddedImage(String path) throws IllegalArgumentException, IOException, NullPointerException {
 		BufferedImage img = null;
-		img = ImageIO.read(ImageTools.class.getResourceAsStream(path));
+		InputStream stream = ImageTools.class.getResourceAsStream(path);
+		img = ImageIO.read(stream);
 		return img;
-	}
-
-	// Returns true if p is within r
-	public static boolean isPointInBounds(Point p, Rectangle r) {
-		return (p.x > r.x && p.x < r.x + r.width && p.y > r.y && p.y < r.y + r.height);
 	}
 
 	public static void saveBufferedImageAsFile(BufferedImage img, String path) {

@@ -1,4 +1,5 @@
-package jShortcut;
+package jUtils.jShortcut;
+
 import java.util.ArrayList;
 import java.util.List;
 
