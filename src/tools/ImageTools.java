@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
 import java.io.File;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
@@ -26,7 +27,7 @@ public class ImageTools {
 	// Copies an BufferedImage and creates a darkened version
 	public static BufferedImage createDarkerBufferedImage(BufferedImage image) {
 		BufferedImage darkenedImage = cloneBufferedImage(image);
-		
+
 		// Obtain the Graphics2D context associated with the BufferedImage.
 		Graphics2D g = darkenedImage.createGraphics();
 
@@ -37,17 +38,24 @@ public class ImageTools {
 		return darkenedImage;
 	}
 
+	// Loads an Image from within the Java Classpath or .jar file
+	public static BufferedImage loadEmbeddedImage(String path) throws IOException {
+		BufferedImage img = null;
+		img = ImageIO.read(ImageTools.class.getResourceAsStream(path));
+		return img;
+	}
+
 	// Returns true if p is within r
 	public static boolean isPointInBounds(Point p, Rectangle r) {
 		return (p.x > r.x && p.x < r.x + r.width && p.y > r.y && p.y < r.y + r.height);
 	}
-	
+
 	public static void saveBufferedImageAsFile(BufferedImage img, String path) {
 		try {
 			ImageIO.write(img, "png", new File(path));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}		
-	
+	}
+
 }
